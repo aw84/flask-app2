@@ -13,6 +13,7 @@ class DevelopmentConfig(Config):
 
 class TestingConfig(Config):
     TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:postgres@localhost/flaskapp2_testing'
 
 
 def get_config_by_name(name):
