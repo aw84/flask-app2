@@ -2,7 +2,7 @@ from flask import Flask
 from flask_migrate import Migrate
 
 from app.config import get_config_by_name
-from app.model.User import User
+from app.model.Model import *
 
 migrate = Migrate()
 
