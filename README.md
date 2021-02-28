@@ -10,7 +10,7 @@ export FLASK_APP="app:create_app('dev')"
 flask run
 ```
 
-```
+```powershell
 $env:FLASK_ENV='development'
 $env:FLASK_APP="app:create_app('dev')"
 flask run
