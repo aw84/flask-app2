@@ -8,11 +8,13 @@ class Config(object):
 class DevelopmentConfig(Config):
     DEBUG = True
     DEVELOPMENT = True
+    SECRET_KEY = 'dev'
     SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:postgres@localhost/flaskapp2'
 
 
 class TestingConfig(Config):
     TESTING = True
+    SECRET_KEY = 'test'
     SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:postgres@localhost/flaskapp2_testing'
 
 
