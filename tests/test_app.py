@@ -18,6 +18,6 @@ def test_config():
     assert create_app('DEV').debug
 
 
-def test_hello(client):
-    response = client.get("/")
-    assert response.status_code == 404
+def test_auth(client):
+    response = client.post("/auth", follow_redirects=True)
+    assert response.status_code == 200
