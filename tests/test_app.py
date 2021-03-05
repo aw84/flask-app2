@@ -40,3 +40,39 @@ def test_user_create(client):
 
     u = User.query.filter(User.username == data['user']).first()
     assert u is not None
+
+
+def test_send_msg(client):
+
+    sender_token = 'sender secret'
+
+    authorization_headers = {
+        'x-auth-token': sender_token
+    }
+
+    data = {
+        'recipient': '11',
+        'group': '123',
+        'msg': 'test message'
+    }
+
+    response = client.post('/api/msg', json=data,
+                           headers=authorization_headers,
+                           follow_redirects=True)
+
+    assert response.status_code == 200
+
+
+def test_get_msg(client):
+
+    recipient_token = 'recpient secret'
+
+    authorization_headers = {
+        'x-auth-token': recipient_token
+    }
+
+    response = client.get('/api/msg', json=data,
+                          headers=authorization_headers,
+                          follow_redirects=True)
+
+    assert response.status_code == 200

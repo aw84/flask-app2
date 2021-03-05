@@ -2,11 +2,11 @@ from app.celery import tasks
 from flask import Blueprint, jsonify, request
 from flask_restplus import Namespace, Resource, fields
 
-auth_ns = Namespace('auth', description='Authorization description')
+auth_ns = Namespace('Authorization', description='Use authorization')
 
 login_model = auth_ns.model('LoginModel', {
-    'id': fields.String(required=True, description='The cat identifier'),
-    'pass': fields.String(required=True, description='The cat name'),
+    'id': fields.String(required=True, description='User\'s ID'),
+    'pass': fields.String(required=True, description='User\'s pass'),
 })
 
 
