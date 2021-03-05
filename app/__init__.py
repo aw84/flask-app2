@@ -20,8 +20,8 @@ def create_app(config_name):
 
     migrate.init_app(app, db)
 
-    from app.service.Auth import auth_bp
-    app.register_blueprint(auth_bp, url_prefix='/auth')
+    from app.service.api import blueprint
+    app.register_blueprint(blueprint, url_prefix='/api')
 
     return app
 

@@ -10,6 +10,6 @@ celery = make_celery(current_app)
 def add(self, a, b):
     u = User.query.first()
     import sys
-    print("**************** {}".format(self.request.id))
-    print("**************** {}".format(u.username))
+    print("---------------- {}".format(self.request.id))
+    print("**************** {}".format(u.username if u is not None else 'X'))
     return a + b
