@@ -16,9 +16,13 @@ def create_app(config_name):
     from app.model import db
     db.init_app(app)
 
+    app.app_context().push()
+
     migrate.init_app(app, db)
 
     from app.service.Auth import auth_bp
     app.register_blueprint(auth_bp, url_prefix='/auth')
 
     return app
+
+app = create_app('DEV')

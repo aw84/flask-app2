@@ -31,3 +31,8 @@ flask db init
 flask db migrate
 flask db upgrade
 ```
+
+**Celery**
+```
+celery -b redis://localhost:6379/0 --result-backend=redis://localhost:6379/0 -A app.celery.tasks.celery worker -Q flaskapp2 --pool=solo
+```

@@ -10,12 +10,16 @@ class DevelopmentConfig(Config):
     DEVELOPMENT = True
     SECRET_KEY = 'dev'
     SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:postgres@localhost/flaskapp2'
+    CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+    CELERY_BROKER_URL = 'redis://localhost:6379/0'
 
 
 class TestingConfig(Config):
     TESTING = True
     SECRET_KEY = 'test'
     SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:postgres@localhost/flaskapp2_testing'
+    CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+    CELERY_BROKER_URL = 'redis://localhost:6379/0'
 
 
 def get_config_by_name(name):
